@@ -1,5 +1,5 @@
 from tradingview_screener import Query
-import pandas as pd
+import streamlit as st
 
 def test_fundamental_data():
     try:
@@ -16,15 +16,15 @@ def test_fundamental_data():
         query = Query().set_markets('america').set_tickers(ticker).select(*columns)
         total_count, df = query.get_scanner_data()
 
-        print(f"Totale risultati: {total_count}")
+        st.write(f"Totale risultati: {total_count}")
         if df.empty:
-            print(f"❌ Nessun dato trovato per {ticker}")
+            st.warning(f"Nessun dato trovato per {ticker}")
         else:
-            print(f"✅ Dati trovati per {ticker}:")
-            print(df.head())
+            st.success(f"Dati trovati per {ticker}:")
+            st.dataframe(df.head())
 
     except Exception as e:
-        print(f"Errore durante il test: {e}")
+        st.error(f"Errore durante il test: {e}")
 
 if __name__ == "__main__":
     test_fundamental_data()
