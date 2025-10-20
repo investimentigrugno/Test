@@ -29,7 +29,7 @@ def test_multi_ticker_columns():
         'net_income_yoy_growth_fq', 'earnings_per_share_diluted_yoy_growth_fq',
         'price_earnings_ttm', 'price_free_cash_flow_ttm', 'total_assets',
         'total_debt', 'number_of_shareholders', 'operating_margin',
-        'net_margin_ttm', 'free_cash_flow_yoy_growth_fq'
+        'net_margin_ttm', 'free_cash_flow_yoy_growth_fy'
     ]
 
     results = {}
