@@ -1,7 +1,8 @@
 import streamlit as st
 from tradingview_screener import Query
+import pandas as pd
 
-def test_fundamental_data():
+def test_multi_ticker_columns():
     markets = [
         'america', 'australia', 'belgium', 'brazil', 'canada', 'chile', 'china', 'italy',
         'czech', 'denmark', 'egypt', 'estonia', 'finland', 'france', 'germany', 'greece',
@@ -10,30 +11,51 @@ def test_fundamental_data():
         'newzealand', 'norway', 'peru', 'philippines', 'poland', 'portugal', 'qatar', 'russia',
         'singapore', 'slovakia', 'spain', 'sweden', 'switzerland', 'taiwan', 'uae', 'uk',
         'venezuela', 'vietnam', 'crypto'
-    ]    
+    ]
 
-    ticker = st.text_input("Inserisci il ticker con prefisso (es. NASDAQ:AAPL):", "NASDAQ:AAPL")
+    # Ecco una lista ticker di esempio 1 per paese (metti i corretto ticker per test reale)
+    tickers = [
+        'NASDAQ:AAPL', 'ASX:BHP', 'EBR:ABI', 'BVMF:PETR4', 'TSX:BMO', 'IPSA:CCU', 'SHE:600519',
+        'BIT:ENEL', 'PSE:CEZ', 'CPH:DSV', 'EGX:EGTS', 'TSE:ELY', 'HEL:NOKIA', 'EPA:ORA', 'FWB:BMW',
+        'ATG:HEINZ', 'HKEX:0700', 'BSE:RELIANCE', 'IDX:TISI', 'ISE:CRH', 'TSE:7203', 'KRX:005930',
+        'KSE:000270', 'LTU:GRG', 'LUX:RTL', 'KLS:GLB', 'BMV:GMEXICOB', 'CAS:IAM', 'AEX:PHIA',
+        'NZX:ANZ', 'OBX:YAR', 'LSE:BA', 'PSE:AP', 'WSE:CDR', 'LIS:EDP', 'QSI:QNBK', 'MCX:SBER',
+        'SGX:DBS', 'BX:MBK', 'BME:ITX', 'OMX:VITR', 'SWX:NESN', 'TPE:2330', 'ADX:ADCB', 'LSE:HSBA',
+        'BCV:PCG', 'VN:VCB', 'CRYPTO:BTC'
+    ]
 
-    if st.button("Esegui Test"):
+    columns = [
+        'name', 'description', 'country', 'sector', 'close',
+        'market_cap_basic', 'total_revenue_qoq_growth_fy', 'gross_profit_qoq_growth_fq',
+        'net_income_qoq_growth_fq', 'earnings_per_share_diluted_qoq_growth_fq',
+        'price_earnings_ttm', 'price_free_cash_flow_ttm', 'total_assets',
+        'total_debt', 'shrhldr_s_equity_fq', 'operating_margin',
+        'net_margin_ttm', 'free_cash_flow_qoq_growth_fq'
+    ]
+
+    results = {}
+
+    for ticker in tickers:
+        st.write(f"Querying {ticker}...")
         try:
-            query = Query().set_markets(*markets).set_tickers(ticker).select(
-                'name', 'description', 'country', 'sector', 'close',
-                'market_cap_basic', 'total_revenue_qoq_growth_fy', 'gross_profit_qoq_growth_fq',
-                'net_income_qoq_growth_fq', 'earnings_per_share_diluted_qoq_growth_fq',
-                'price_earnings_ttm', 'price_free_cash_flow_ttm', 'total_assets',
-                'total_debt', 'shrhldr_s_equity_fq', 'operating_margin',
-                'net_margin_ttm', 'free_cash_flow_qoq_growth_fq'
-            )
-            total_count, df = query.get_scanner_data()
-            
-            st.write(f"Totale risultati: {total_count}")
+            query = Query().set_markets(*markets).set_tickers(ticker).select(*columns)
+            total, df = query.get_scanner_data()
+
             if df.empty:
-                st.warning("❌ Nessun dato trovato per questo ticker")
-            else:
-                st.dataframe(df.head())
+                st.warning(f"Nessun dato trovato per {ticker}")
+                continue
+
+            df = df.head(1)
+            data_presence = {col: not pd.isna(df.iloc[0][col]) and df.iloc[0][col] != "" for col in columns if col in df.columns}
+            results[ticker] = data_presence
 
         except Exception as e:
-            st.error(f"Errore durante il test: {e}")
+            st.error(f"Errore per {ticker}: {e}")
+
+    # Organizza risultati in DataFrame per confronto
+    comparison_df = pd.DataFrame(results).T.fillna(False)
+    st.write("Confronto colonne con dati disponibili per ticker:")
+    st.dataframe(comparison_df)
 
 if __name__ == "__main__":
-    test_fundamental_data()
+    test_multi_ticker_columns()
