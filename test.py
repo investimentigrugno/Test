@@ -13,12 +13,11 @@ def test_multi_ticker_columns():
         'venezuela', 'vietnam', 'crypto'
     ]
 
-    # Ecco una lista ticker di esempio 1 per paese (metti i corretto ticker per test reale)
     tickers = [
-        'NASDAQ:AAPL', 'ASX:BHP', 'EBR:ABI', 'BVMF:PETR4', 'TSX:BMO', 'IPSA:CCU', 'SHE:600519',
-        'BIT:ENEL', 'PSE:CEZ', 'CPH:DSV', 'EGX:EGTS', 'TSE:ELY', 'HEL:NOKIA', 'EPA:ORA', 'FWB:BMW',
-        'ATG:HEINZ', 'HKEX:0700', 'BSE:RELIANCE', 'IDX:TISI', 'ISE:CRH', 'TSE:7203', 'KRX:005930',
-        'KSE:000270', 'LTU:GRG', 'LUX:RTL', 'KLS:GLB', 'BMV:GMEXICOB', 'CAS:IAM', 'AEX:PHIA',
+        'NASDAQ:AAPL', 'ASX:BHP', 'MIL:ABI', 'BVMF:PETR4', 'TSX:BMO', 'IPSA:CCU', 'SHE:600519',
+        'MIL:ENEL', 'CPH:DSV', 'EGX:EGTS', 'HEL:NOKIA', 'EPA:ORA', 'FWB:BMW', 'XETR:HEINZ',
+        'HKEX:0700', 'BSE:RELIANCE', 'IDX:TISI', 'ISE:CRH', 'TSE:7203', 'KRX:005930',
+        'KSE:000270', 'LTU:GRG', 'LUX:RTL', 'KLS:GLB', 'BMV:GMEXICOB', 'CAS:IAM', 'AMS:PHIA',
         'NZX:ANZ', 'OBX:YAR', 'LSE:BA', 'PSE:AP', 'WSE:CDR', 'LIS:EDP', 'QSI:QNBK', 'MCX:SBER',
         'SGX:DBS', 'BX:MBK', 'BME:ITX', 'OMX:VITR', 'SWX:NESN', 'TPE:2330', 'ADX:ADCB', 'LSE:HSBA',
         'BCV:PCG', 'VN:VCB', 'CRYPTO:BTC'
@@ -46,13 +45,12 @@ def test_multi_ticker_columns():
                 continue
 
             df = df.head(1)
-            data_presence = {col: not pd.isna(df.iloc[0][col]) and df.iloc[0][col] != "" for col in columns if col in df.columns}
+            data_presence = {col: not pd.isna(df.iloc[0].get(col, None)) and df.iloc[0].get(col, "") != "" for col in columns}
             results[ticker] = data_presence
 
         except Exception as e:
             st.error(f"Errore per {ticker}: {e}")
 
-    # Organizza risultati in DataFrame per confronto
     comparison_df = pd.DataFrame(results).T.fillna(False)
     st.write("Confronto colonne con dati disponibili per ticker:")
     st.dataframe(comparison_df)
