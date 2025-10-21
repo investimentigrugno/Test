@@ -14,7 +14,7 @@ def test_multi_ticker_columns():
     ]
 
     tickers = [
-        'NASDAQ:AAPL', 'ASX:BHP', 'BMFBOVESPA:PETR4', 'TSX:BMO', 'BVC:CCUCO', 'SSE:600519',
+        'NASDAQ:AAPL', 'ASX:BHP', 'BMFBOVESPA:PETR4', 'TSX:RY', 'BVC:CCUCO', 'SSE:600519',
         'MIL:ENEL', 'OMXCOP:DSV', 'EGX:EGTS', 'OMXHEX:NOKIA', 'EURONEXT:ORA', 'XETR:BMW',
         'HKEX:700', 'NSE:RELIANCE', 'IDX:BBRI', 'TSE:7203','KRX:000270', 'OMXVSE:AKO1L',
         'LUXSE:RTLL', 'BIVA:AGNC', 'NZX:AIA', 'OSL:AKER', 'LSE:BA.', 'GPW:CDR', 'QSE:QAMC', 'RUS:SBER',
