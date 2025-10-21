@@ -15,8 +15,8 @@ def test_single_ticker():
 
     columns = [
         'name', 'description', 'country', 'sector', 'close',
-        'market_cap_basic', 'total_revenue_yoy_growth_fq', 'gross_profit_yoy_growth_fq',
-        'net_income_yoy_growth_fq', 'earnings_per_share_diluted_yoy_growth_fy',
+        'market_cap_basic', 'total_revenue_yoy_growth_fy', 'gross_profit_yoy_growth_fy',
+        'net_income_yoy_growth_fy', 'earnings_per_share_diluted_yoy_growth_fy',
         'price_earnings_ttm', 'price_free_cash_flow_ttm', 'total_assets',
         'total_debt', 'operating_margin', 'ebitda_yoy_growth_fy',
         'net_margin_ttm', 'free_cash_flow_yoy_growth_fy', 'price_sales_ratio',
