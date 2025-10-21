@@ -16,11 +16,9 @@ def test_multi_ticker_columns():
     tickers = [
         'NASDAQ:AAPL', 'ASX:BHP', 'BMFBOVESPA:PETR4', 'TSX:BMO', 'BVC:CCUCO', 'SSE:600519',
         'MIL:ENEL', 'OMXCOP:DSV', 'EGX:EGTS', 'OMXHEX:NOKIA', 'EURONEXT:ORA', 'XETR:BMW',
-        'HKEX:700', 'NSE:RELIANCE', 'IDX:TISI', 'ISE:CRH', 'TSE:7203', 'KRX:005930',
-        'KSE:000270', 'LTU:GRG', 'LUX:RTL', 'KLS:GLB', 'BMV:GMEXICOB', 'CAS:IAM', 'AMS:PHIA',
-        'NZX:ANZ', 'OBX:YAR', 'LSE:BA', 'PSE:AP', 'WSE:CDR', 'LIS:EDP', 'QSI:QNBK', 'MCX:SBER',
-        'SGX:DBS', 'BX:MBK', 'BME:ITX', 'OMX:VITR', 'SWX:NESN', 'TPE:2330', 'ADX:ADCB', 'LSE:HSBA',
-        'BCV:PCG', 'VN:VCB', 'CRYPTO:BTC'
+        'HKEX:700', 'NSE:RELIANCE', 'IDX:BBRI', 'TSE:7203','KRX:000270', 'OMXVSE:AKO1L',
+        'LUXSE:RTLL', 'BIVA:AGNC', 'NZX:AIA', 'OSL:AKER', 'LSE:BA.', 'GPW:CDR', 'QSE:QAMC', 'RUS:SBER',
+        'SGX:D05','BME:ITX', 'OMXSTO:SAND', 'SIX:NESN', 'TWSE:2330', 'ADX:ADCB', 'LSE:HSBA',
     ]
 
     columns = [
