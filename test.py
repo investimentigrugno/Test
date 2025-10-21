@@ -46,16 +46,22 @@ def test_single_ticker():
                     st.subheader("📊 Dati Completi")
                     st.dataframe(df)
                     
-                    # Analisi presenza dati per colonna
+                    # Analisi presenza dati per colonna CON VALORI
                     st.subheader("📋 Presenza Dati per Colonna")
-                    data_presence = {}
+                    data_info = []
                     for col in columns:
                         value = df.iloc[0].get(col, None)
                         is_present = not pd.isna(value) and value != ""
-                        data_presence[col] = "✅ Presente" if is_present else "❌ Assente"
+                        stato = "✅ Presente" if is_present else "❌ Assente"
+                        valore = value if is_present else "N/A"
+                        data_info.append({
+                            'Colonna': col,
+                            'Stato': stato,
+                            'Valore': valore
+                        })
                     
-                    presence_df = pd.DataFrame(list(data_presence.items()), columns=['Colonna', 'Stato'])
-                    st.dataframe(presence_df)
+                    presence_df = pd.DataFrame(data_info)
+                    st.dataframe(presence_df, use_container_width=True)
 
             except Exception as e:
                 st.error(f"❌ Errore per {ticker}: {e}")
