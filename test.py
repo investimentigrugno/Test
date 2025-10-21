@@ -18,7 +18,7 @@ def test_multi_ticker_columns():
         'MIL:ENEL', 'OMXCOP:DSV', 'EGX:EGTS', 'OMXHEX:NOKIA', 'EURONEXT:ORA', 'XETR:BMW',
         'HKEX:700', 'NSE:RELIANCE', 'IDX:BBRI', 'TSE:7203','KRX:000270', 'OMXVSE:AKO1L',
         'LUXSE:RTLL', 'BIVA:AGNC', 'NZX:AIA', 'OSL:AKER', 'LSE:BA.', 'GPW:CDR', 'QSE:QAMC', 'RUS:SBER',
-        'SGX:D05','BME:ITX', 'OMXSTO:SAND', 'SIX:NESN', 'TWSE:2330', 'ADX:ADCB', 'LSE:HSBA',
+        'SGX:D05','BME:ITX', 'OMXSTO:SAND', 'SIX:NESN', 'TWSE:2330', 'ADX:ADCB', 'LSE:HSBA'
     ]
 
     columns = [
@@ -26,8 +26,11 @@ def test_multi_ticker_columns():
         'market_cap_basic', 'total_revenue_yoy_growth_fq', 'gross_profit_yoy_growth_fq',
         'net_income_yoy_growth_fq', 'earnings_per_share_diluted_yoy_growth_fy',
         'price_earnings_ttm', 'price_free_cash_flow_ttm', 'total_assets',
-        'total_debt', 'operating_margin',
-        'net_margin_ttm', 'free_cash_flow_yoy_growth_fy'
+        'total_debt', 'operating_margin', 'ebitda_yoy_growth_fy',
+        'net_margin_ttm', 'free_cash_flow_yoy_growth_fy','price_sales_ratio', 
+        'capex_per_share_ttm', 'capital_expenditures_yoy_growth_ttm', 'enterprise_value_to_free_cash_flow_ttm',
+        'free_cash_flow_cagr_5y','invent_turnover_current', 'price_target_low', 'price_target_high', 'price_target_median',
+        'revenue_forecast_fq', 'earnings_per_share_forecast_fq'
     ]
 
     results = {}
