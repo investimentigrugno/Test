@@ -14,15 +14,41 @@ def test_single_ticker():
     ]
 
     columns = [
-        'name', 'description', 'country', 'sector', 'close',
-        'market_cap_basic', 'total_revenue_yoy_growth_fy', 'gross_profit_yoy_growth_fy',
-        'net_income_yoy_growth_fy', 'earnings_per_share_diluted_yoy_growth_fy',
-        'price_earnings_ttm', 'price_free_cash_flow_ttm', 'total_assets',
-        'total_debt', 'operating_margin', 'ebitda_yoy_growth_fy',
-        'net_margin_ttm', 'free_cash_flow_yoy_growth_fy', 'price_sales_ratio',
-        'capex_per_share_ttm', 'capital_expenditures_yoy_growth_ttm', 'enterprise_value_to_free_cash_flow_ttm',
-        'free_cash_flow_cagr_5y', 'invent_turnover_current', 'price_target_low', 'price_target_high', 'price_target_median',
-        'revenue_forecast_fq', 'earnings_per_share_forecast_fq','SMA50','SMA200'
+                'name', 'close', 'open', 'high', 'low', 'volume',
+                'change', 'change_abs', 'Recommend.All',
+                
+                # Indicatori di Trend
+                'RSI', 'RSI[1]', 'Stoch.K', 'Stoch.D', 
+                'MACD.macd', 'MACD.signal', 'ADX', 'ADX+DI', 'ADX-DI',
+                
+                # Medie Mobili
+                'SMA20', 'EMA20', 'SMA50', 'EMA50', 'SMA100', 'SMA200',
+                
+                # Volatilità
+                'ATR', 'BB.upper', 'BB.lower', 'BB.basis',
+                
+                # Momentum
+                'CCI20', 'Mom', 'Stoch.RSI.K',
+                
+                # Volume
+                'VolumeMa', 'Rec.Stoch.RSI', 'Rec.WR', 'Rec.BBPower',
+                'Rec.UO', 'Rec.Ichimoku',
+                
+                # Dati Fondamentali
+                'market_cap_basic', 'price_earnings_ttm', 'dividend_yield_recent',
+                
+                # Pivot Points
+                'Pivot.M.Classic.S1', 'Pivot.M.Classic.R1',
+                'Pivot.M.Classic.S2', 'Pivot.M.Classic.R2',
+                'Pivot.M.Classic.S3', 'Pivot.M.Classic.R3',
+                
+                # Performance
+                'Perf.W', 'Perf.1M', 'Perf.3M', 'Perf.6M', 'Perf.Y',
+                
+                # Volatilità Storica
+                'volatility.D', 'volatility.W', 'volatility.M',
+                'average_volume_10d_calc', 'average_volume_30d_calc',
+                'average_volume_60d_calc'
     ]
 
     # Barra di ricerca per il ticker
