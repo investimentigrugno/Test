@@ -18,7 +18,7 @@ def test_single_ticker():
                 'change', 'change_abs', 'Recommend.All',
                 
                 # Indicatori di Trend
-                'RSI', 'RSI[1]', 'Stoch.K', 'Stoch.D', 
+                'RSI', 'RSI[7]', 'Stoch.K', 'Stoch.D', 
                 'MACD.macd', 'MACD.signal', 'ADX', 'ADX+DI', 'ADX-DI',
                 
                 # Medie Mobili
