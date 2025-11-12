@@ -25,7 +25,7 @@ def test_single_ticker():
                 'SMA20', 'EMA20', 'SMA50', 'EMA50', 'SMA100', 'SMA200',
                 
                 # Volatilità
-                'ATR', 'BB.upper', 'BB.lower', 'BB.basis',
+                'ATR','ATR[1]', 'BB.upper', 'BB.lower', 'BB.basis',
                 
                 # Momentum
                 'CCI20', 'Mom', 'Stoch.RSI.K',
