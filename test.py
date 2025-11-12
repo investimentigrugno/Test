@@ -18,7 +18,7 @@ def test_single_ticker():
                 'change', 'change_abs', 'Recommend.All',
                 
                 # Indicatori di Trend
-                'RSI', 'RSI[7]', 'Stoch.K', 'Stoch.D', 
+                'RSI', 'RSI[5]', 'Stoch.K', 'Stoch.D', 
                 'MACD.macd', 'MACD.signal', 'ADX', 'ADX+DI', 'ADX-DI',
                 
                 # Medie Mobili
@@ -46,7 +46,8 @@ def test_single_ticker():
                 'Perf.W', 'Perf.1M', 'Perf.3M', 'Perf.6M', 'Perf.Y',
                 
                 # Volatilità Storica
-                'volatility.D', 'volatility.W', 'volatility.M',
+                'Volatility.D', 'Volatility.W', 'Volatility.M',
+                'Volatility.D[1]', 'Volatility.W[1]', 'Volatility.M[1]',
                 'average_volume_10d_calc', 'average_volume_30d_calc',
                 'average_volume_60d_calc'
     ]
